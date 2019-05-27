@@ -134,6 +134,18 @@ public class Principal extends javax.swing.JPanel {
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
+    	int seleccionado= comboTiposCrear.getSelectedIndex();
+    	if(seleccionado==0) {
+    	 principal.cambiarACreacion();	
+    	}else if (seleccionado==1) {
+    	 principal.cambiarAModificacion();
+    	}else if (seleccionado == 2) {
+         principal.cambiarACancelacion();
+		}else if (seleccionado == 3) {
+		 principal.cambiarAReportar();
+		}else if (seleccionado == 4) {
+		 principal.cambiarAReclamo();
+		}
     }                                        
 
     private void btnConsultaFActionPerformed(java.awt.event.ActionEvent evt) {                                             

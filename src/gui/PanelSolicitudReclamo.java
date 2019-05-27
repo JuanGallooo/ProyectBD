@@ -116,7 +116,7 @@ public class PanelSolicitudReclamo extends javax.swing.JPanel {
     }// </editor-fold>                        
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
+    	principal.crearSolicitudReclamo(comboTipo.getSelectedIndex(),jTextField2.getText(),jTextField3.getText());
     }                                           
 
 

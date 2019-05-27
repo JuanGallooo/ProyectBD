@@ -102,7 +102,7 @@ public class PanelCCancelacion extends JPanel {
     }// </editor-fold>                        
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
+        principal.crearSolicitudCancelacion(comboTipo.getSelectedIndex(),jTextField2.getText());
     }                                           
 
 

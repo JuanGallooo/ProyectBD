@@ -48,7 +48,7 @@ public class PanelCCrear extends javax.swing.JPanel {
 
         jLabel2.setText("Tipo :");
 
-        jLabel3.setText("Cédula :");
+        jLabel3.setText("Cliente(Id):");
 
         jLabel4.setText("Observación :");
 
@@ -108,7 +108,7 @@ public class PanelCCrear extends javax.swing.JPanel {
     }// </editor-fold>                        
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+    	principal.crearSolicitudCreacion(comboTipo.getSelectedIndex(),txtCedula.getText(),jTextField2.getText());
     }                                        
 
 

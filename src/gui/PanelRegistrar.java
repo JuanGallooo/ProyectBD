@@ -60,7 +60,7 @@ public class PanelRegistrar extends javax.swing.JPanel {
 
         jLabel6.setText("Teléfono :");
 
-        btnCrear.setText("Crear");
+        btnCrear.setText("Registrar");
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearActionPerformed(evt);
@@ -150,7 +150,7 @@ public class PanelRegistrar extends javax.swing.JPanel {
     }// </editor-fold>                        
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+    	principal.registrar(txtNombre.getText(),txtContra.getText(),txtCedula.getText(),txtDireccion.getText(),txtFecha.getText(),txtTelefono.getText());
     }                                        
 
 

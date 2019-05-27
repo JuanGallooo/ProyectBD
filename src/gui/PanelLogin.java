@@ -41,7 +41,7 @@ public class PanelLogin extends javax.swing.JPanel {
 
         lbLogin.setText("Login");
 
-        lbUsuario.setText("Usuario :");
+        lbUsuario.setText("ID :");
 
         lbContra.setText("Contraseña :");
 
@@ -130,11 +130,21 @@ public class PanelLogin extends javax.swing.JPanel {
     }// </editor-fold>                        
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+    	if(checkFuncionario.isSelected()){
+    		principal.LoginFuncionario(txtUsuario.getText());
+        }
+    	else if(checkUsu.isSelected()){
+    		principal.LoginUsu(txtUsuario.getText());
+        }
     }                                        
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        // TODO add your handling code here:
+    	if(checkFuncionario.isSelected()){
+    		principal.registrarFuncionario();
+        }
+    	else if(checkUsu.isSelected()){
+    		principal.registrarUsuario();
+        }
     }                                              
 
     private void checkUsuActionPerformed(java.awt.event.ActionEvent evt) {                                         

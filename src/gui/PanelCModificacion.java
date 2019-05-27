@@ -100,7 +100,7 @@ public class PanelCModificacion extends javax.swing.JPanel {
     }// </editor-fold>                        
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
+    	principal.crearSolicitudModificacion(comboTipoAnterior.getSelectedIndex(),comboTipoNuevo.getSelectedIndex());
     }                                        
 
 

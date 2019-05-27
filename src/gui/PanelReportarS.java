@@ -118,7 +118,7 @@ public class PanelReportarS extends javax.swing.JPanel {
     }// </editor-fold>                        
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
+    	principal.crearSolicitudDano(comboTipo.getSelectedIndex(),jTextField2.getText(),jTextField3.getText());
     }                                           
 
 

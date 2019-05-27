@@ -1,8 +1,6 @@
 package modelo;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 import tablas.Cliente;
 import tablas.Estado;
@@ -18,12 +16,12 @@ public class TelefoniaMovil {
 	private Cliente tbCliente;
 	private Connection con;
 	private ConexionOracle oracle;
+	private String idUsuario;
 	
 	public TelefoniaMovil() {
 		super();
 		oracle= new ConexionOracle();
 		con= oracle.getConnection();
-		
 		tbsolicitud= new Solicitud(con);
 		tbFuncionario= new Funcionario(con);
 		tbEstado= new Estado(con);
@@ -69,5 +67,10 @@ public class TelefoniaMovil {
 	public void registrarFuncionario(String nombre, String contrasenha, String cedula, String direccion , String fn, String telefono) {
 		tbFuncionario.registrarFuncionario(nombre, contrasenha, cedula, direccion, fn, telefono);
 	}
-	
+	public String getIdUsuario() {
+		return idUsuario;
+	}
+	public void setIdUsuario(String idUsuario) {
+		this.idUsuario = idUsuario;
+	}
 }
