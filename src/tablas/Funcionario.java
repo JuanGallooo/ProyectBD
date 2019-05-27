@@ -70,7 +70,7 @@ public class Funcionario {
 		try{
 			String resCodigo="5";
 			
-			if( respuesta.equals("Anulada")) {
+			if( respuesta.compareToIgnoreCase("Anulada") == 0) {
 				resCodigo= "6";
 			}
 			
