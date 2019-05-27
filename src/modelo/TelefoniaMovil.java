@@ -3,6 +3,7 @@ package modelo;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.Types;
 import java.util.concurrent.ThreadPoolExecutor.CallerRunsPolicy;
 
 import javax.swing.table.DefaultTableModel;
@@ -102,5 +103,41 @@ public class TelefoniaMovil {
 	    	   e.printStackTrace();
 	       }
 		return tabla;
+	}
+	public boolean comprobarContrasenaCliente(String contrasena) {
+		boolean respuesta=false;
+		String retorno="";
+		//pkClienteNivelUno.fConsultaContraseña('GalloGay')
+		try {
+			CallableStatement callSt= null;
+	        callSt = con.prepareCall("{?= call pkClienteNivelUno.fConsultaContraseña(?)}");
+	        callSt.registerOutParameter(1,Types.VARCHAR);
+	        callSt.setString(2, idUsuario);
+	        callSt.execute();
+	        retorno = callSt.getString(1);
+	        
+	        if(retorno.equals(contrasena)) respuesta=true;
+		} catch (Exception e) {
+			retorno= "Error en consultar funcionario : "+ e.getMessage();
+		}
+		return respuesta;
+	}
+	public boolean comprobarContrasenaFuncionario(String contrasena) {
+		boolean respuesta=false;
+		String retorno="";
+		//pkClienteNivelUno.fConsultaContraseña('GalloGay')
+		try {
+			CallableStatement callSt= null;
+	        callSt = con.prepareCall("{?= call pkFuncionarioNivelUno.fConsultaContraseña(?)}");
+	        callSt.registerOutParameter(1,Types.VARCHAR);
+	        callSt.setString(2, idUsuario);
+	        callSt.execute();
+	        retorno = callSt.getString(1);
+	        
+	        if(retorno.equals(contrasena)) respuesta=true;
+		} catch (Exception e) {
+			retorno= "Error en consultar funcionario : "+ e.getMessage();
+		}
+		return respuesta;
 	}
 }

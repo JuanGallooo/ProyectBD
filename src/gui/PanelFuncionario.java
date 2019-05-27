@@ -6,6 +6,7 @@
 package gui;
 
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -24,6 +25,17 @@ public class PanelFuncionario extends javax.swing.JPanel {
         if( modelo !=null) {
         	jTable1.setModel(modelo);
         }
+        for (int i = 0; i < 7; i++) {
+        	if(i==1) {
+        		jTable1.getColumnModel().getColumn(i).setPreferredWidth(300);
+        	}
+        	else if(i==4) {
+        		jTable1.getColumnModel().getColumn(i).setPreferredWidth(900);
+        	}
+        	else {
+        		jTable1.getColumnModel().getColumn(i).setPreferredWidth(600);
+        	}
+        }  
     }
 
     /**
@@ -71,7 +83,7 @@ public class PanelFuncionario extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

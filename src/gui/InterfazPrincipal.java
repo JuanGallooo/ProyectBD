@@ -101,17 +101,27 @@ public class InterfazPrincipal extends JFrame{
 		pack();
 	}
 
-	public void LoginFuncionario(String id) {
+	public void LoginFuncionario(String id,String contrasena) {
 		mundo.setIdUsuario(id);
+		if( mundo.comprobarContrasenaFuncionario(contrasena)) {
 		cambiarAFuncionario();
 		pack();
+		}
+		else {
+			JOptionPane.showMessageDialog(this, "Contraseña invalida", "Contraseña", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 
-	public void LoginUsu(String id) {
+	public void LoginUsu(String id,String contrasena) {
 		mundo.setIdUsuario(id);
+		if( mundo.comprobarContrasenaCliente(contrasena)) {			
 		usuario= true;
 		cambiarAPrincipal();
 		pack();
+		}
+		else {
+			JOptionPane.showMessageDialog(this, "Contraseña invalida", "Contraseña", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 
 	public void registrarFuncionario() {

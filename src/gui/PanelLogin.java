@@ -131,10 +131,10 @@ public class PanelLogin extends javax.swing.JPanel {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {                                         
     	if(checkFuncionario.isSelected()){
-    		principal.LoginFuncionario(txtUsuario.getText());
+    		principal.LoginFuncionario(txtUsuario.getText(),String.valueOf(txtContra.getPassword()));
         }
     	else if(checkUsu.isSelected()){
-    		principal.LoginUsu(txtUsuario.getText());
+    		principal.LoginUsu(txtUsuario.getText(),String.valueOf(txtContra.getPassword()));
         }
     }                                        
 
