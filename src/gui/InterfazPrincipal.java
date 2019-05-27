@@ -190,8 +190,8 @@ public class InterfazPrincipal extends JFrame{
 	}
 
 	public void antenderSolicitudReclamo() {
-		String solicitud = JOptionPane.showInputDialog(this, "Ingrese el numero de la solicitud que desea atender ?");
-		String respuesta = JOptionPane.showInputDialog(this, "Indique la respuesta a dicha solicitud ?");
+		String solicitud = JOptionPane.showInputDialog(this, "Ingrese el numero de la solicitud que desea atender:");
+		String respuesta = JOptionPane.showInputDialog(this, "Indique la respuesta a dicha solicitud: \nResponda escribiendo: Aceptada o Anulada");
 		mundo.atenderSolicitudDR(mundo.getIdUsuario(), solicitud, respuesta);
 		cambiarAFuncionario();
 	}
