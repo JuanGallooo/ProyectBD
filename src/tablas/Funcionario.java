@@ -14,6 +14,8 @@ public class Funcionario {
 		this.con = con;
 	}//
 	
+
+	
 	public void registrarFuncionario(String nombre, String contrasenha, String cedula, String direccion , String fn, String telefono) {
 		Random n = new Random();		
 		int random = n.nextInt(80000);

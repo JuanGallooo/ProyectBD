@@ -1,6 +1,11 @@
 package modelo;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.concurrent.ThreadPoolExecutor.CallerRunsPolicy;
+
+import javax.swing.table.DefaultTableModel;
 
 import tablas.Cliente;
 import tablas.Estado;
@@ -72,5 +77,30 @@ public class TelefoniaMovil {
 	}
 	public void setIdUsuario(String idUsuario) {
 		this.idUsuario = idUsuario;
+	}
+	public DefaultTableModel solicitudesFuncionario() {
+		DefaultTableModel tabla= new DefaultTableModel();
+	       try{
+	       tabla.addColumn("NUMSOLICITUD");
+	       tabla.addColumn("OBSERVACION");
+	       tabla.addColumn("PRODUCTO_CODIGO");
+	       tabla.addColumn("CLIENTE_ID");
+	       tabla.addColumn("TIPO_CODIGO");
+	       tabla.addColumn("ESTADO_CODIGO");
+	       tabla.addColumn("FECHA_PENDIENTE");
+	       CallableStatement cts=con.prepareCall("Select solicitud from asignacion inner join solicitud on (asignacion.solicitud_numsolicitud=solicitud.numsolicitud) where asignacion.funcionario_id ="+idUsuario);
+	       ResultSet r=cts.executeQuery();
+	       while (r.next()){
+	       Object dato[]=new  Object[7];
+	       for (int i=0; i<7; i++){
+	           dato[i]=r.getString(i+1);
+	       }
+	       tabla.addRow(dato);
+	       }
+	       }
+	       catch(Exception e){
+	    	   e.printStackTrace();
+	       }
+		return tabla;
 	}
 }

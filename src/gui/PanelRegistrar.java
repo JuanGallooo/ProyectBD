@@ -67,7 +67,7 @@ public class PanelRegistrar extends javax.swing.JPanel {
             }
         });
 
-        jLabel7.setText("(dd/mm/yyyy)");
+        jLabel7.setText("(yyyy/mm/dd)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

@@ -13,13 +13,13 @@ import javax.swing.JComboBox;
  *
  * @author Juan Esteban Gallo
  */
-public class Principal extends javax.swing.JPanel {
+public class PanelUsuario extends javax.swing.JPanel {
 
 	private InterfazPrincipal principal;
     /**
      * Creates new form Principal
      */
-    public Principal(InterfazPrincipal p) {
+    public PanelUsuario(InterfazPrincipal p) {
         initComponents();
         principal=p;
     }

@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 import modelo.TelefoniaMovil;
 
@@ -14,7 +15,8 @@ public class InterfazPrincipal extends JFrame{
 	private JPanel aux;
 	private TelefoniaMovil mundo;
 	
-	private Principal miPrincipal;
+	private PanelUsuario miPrincipal;
+	private PanelFuncionario miPanelFuncionario;
 	
 	private PanelCCancelacion miPanelCancelacion;
 	private PanelCCrear miPanelCrear;
@@ -25,22 +27,32 @@ public class InterfazPrincipal extends JFrame{
 	private PanelSolicitudReclamo miPanelSolicitudReclamo;
 	private boolean usuario;
 	
+	
+	public static void main(String[] args) {
+		InterfazPrincipal principal = new InterfazPrincipal();
+		principal.show();
+		principal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
 	public InterfazPrincipal() {
 		super();
 		setLayout(new BorderLayout());
 		usuario=false;
-		
 		aux = new JPanel();
 		aux.setLayout(new BorderLayout());
-		
 		miPanelLogin= new PanelLogin(this);
 		aux.add(miPanelLogin, BorderLayout.CENTER);
 		mundo= new TelefoniaMovil();
-		
 		add(aux,BorderLayout.CENTER);
 		pack();
 	}
-	
+	public void cambiarAFuncionario() {
+		aux.remove(0);
+		 DefaultTableModel nuevo= mundo.solicitudesFuncionario();
+		miPanelFuncionario= new PanelFuncionario(this,nuevo);
+		aux.add(miPanelFuncionario, BorderLayout.CENTER);
+		pack();
+	}
 	public void cambiarALogin() {
 		aux.remove(0);
 		miPanelLogin= new PanelLogin(this);
@@ -85,20 +97,22 @@ public class InterfazPrincipal extends JFrame{
 	}
 	public void cambiarAPrincipal() {
 		aux.remove(0);
-		miPrincipal= new Principal(this);
+		miPrincipal= new PanelUsuario(this);
 		aux.add(miPrincipal, BorderLayout.CENTER);
 		pack();
 	}
 
 	public void LoginFuncionario(String id) {
 		mundo.setIdUsuario(id);
-		cambiarAPrincipal();
+		cambiarAFuncionario();
+		pack();
 	}
 
 	public void LoginUsu(String id) {
 		mundo.setIdUsuario(id);
 		usuario= true;
 		cambiarAPrincipal();
+		pack();
 	}
 
 	public void registrarFuncionario() {
@@ -167,5 +181,19 @@ public class InterfazPrincipal extends JFrame{
 		String estado = JOptionPane.showInputDialog(this, "Ingrese el id del estado que desea hacer la consulta?");
 		String respuesta= mundo.consultaFuncionario(estado);
 		JOptionPane.showMessageDialog(this, respuesta, "Respuesta a la consulta", JOptionPane.INFORMATION_MESSAGE);
+	}
+
+
+	public void antenderSolicitud() {
+		String solicitud = JOptionPane.showInputDialog(this, "Ingrese el numero de la solicitud que desea atender ?");
+		mundo.atenderSolicitud(mundo.getIdUsuario(), solicitud);
+		cambiarAFuncionario();
+	}
+
+	public void antenderSolicitudReclamo() {
+		String solicitud = JOptionPane.showInputDialog(this, "Ingrese el numero de la solicitud que desea atender ?");
+		String respuesta = JOptionPane.showInputDialog(this, "Indique la respuesta a dicha solicitud ?");
+		mundo.atenderSolicitudDR(mundo.getIdUsuario(), solicitud, respuesta);
+		cambiarAFuncionario();
 	}
 }
