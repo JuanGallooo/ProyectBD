@@ -1,6 +1,8 @@
 package modelo;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import tablas.Cliente;
 import tablas.Estado;
@@ -55,4 +57,17 @@ public class TelefoniaMovil {
 	public void crearSolicitudDano(String tipo, String id, String observacion) {
 		tbsolicitud.crearDano(tipo, id, observacion);;
 	}
+	public void atenderSolicitud(String funcionario,String numSolicitud) {
+		tbFuncionario.atenderSolicitud(funcionario, numSolicitud);
+	}
+	public void atenderSolicitudDR(String funcionario,String numSolicitud, String respuesta) {
+		tbFuncionario.atenderSolicitudDR(funcionario, numSolicitud, respuesta);
+	}
+	public void registrarCliente(String nombre, String contrasenha, String cedula, String direccion , String fn, String telefono) {
+		tbCliente.registrarCliente(nombre, contrasenha, cedula, direccion, fn, telefono);
+	}
+	public void registrarFuncionario(String nombre, String contrasenha, String cedula, String direccion , String fn, String telefono) {
+		tbFuncionario.registrarFuncionario(nombre, contrasenha, cedula, direccion, fn, telefono);
+	}
+	
 }
