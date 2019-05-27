@@ -15,11 +15,13 @@ import javax.swing.JComboBox;
  */
 public class PanelSolicitudReclamo extends javax.swing.JPanel {
 
+	private InterfazPrincipal principal;
     /**
      * Creates new form PanelCCrear
      */
-    public PanelSolicitudReclamo() {
+    public PanelSolicitudReclamo(InterfazPrincipal p) {
         initComponents();
+        principal= p;
     }
 
     /**

@@ -15,11 +15,13 @@ import javax.swing.JComboBox;
  */
 public class PanelCCrear extends javax.swing.JPanel {
 
+	private InterfazPrincipal principal;
     /**
      * Creates new form PanelCCrear
      */
-    public PanelCCrear() {
+    public PanelCCrear(InterfazPrincipal p) {
         initComponents();
+        principal=p;
     }
 
     /**

@@ -19,8 +19,11 @@ public class PanelCCancelacion extends JPanel {
     /**
      * Creates new form PanelCCrear
      */
-    public PanelCCancelacion() {
-        initComponents();
+	private InterfazPrincipal principal;
+	
+    public PanelCCancelacion(InterfazPrincipal p) {
+        principal=p;
+    	initComponents();
     }
 
     /**
