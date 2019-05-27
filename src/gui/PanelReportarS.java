@@ -48,9 +48,9 @@ public class PanelReportarS extends javax.swing.JPanel {
 
         jLabel2.setText("Producto :");
 
-        jLabel4.setText("Cedula :");
+        jLabel4.setText("Id Cliente :");
 
-        btnCancelar.setText("Crear Cancelacion");
+        btnCancelar.setText("Crear Solicitud");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);

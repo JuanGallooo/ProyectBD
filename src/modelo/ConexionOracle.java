@@ -13,7 +13,7 @@ public class ConexionOracle {
 	
 	public void inicializarConnection() {
 		try {
-			con = DriverManager.getConnection("jdbc:oracle:thin:@200.3.193.24:1522/ESTUD","P09551_1_14","P09551_1_14_20191");
+			con = DriverManager.getConnection("jdbc:oracle:thin:@200.3.193.24:1522/ESTUD","P09551_1_13","P09551_1_13_20191");
 		} catch (SQLException e) {
 			System.out.println("No se pudo establecer la conexion");
 			e.printStackTrace();

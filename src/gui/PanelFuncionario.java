@@ -45,7 +45,7 @@ public class PanelFuncionario extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jButton2.setText("Atender Solicitud Reclamo");
+        jButton2.setText("Atender Solicitud DR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

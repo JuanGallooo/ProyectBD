@@ -50,7 +50,7 @@ public class PanelCCancelacion extends JPanel {
 
         jLabel4.setText("Causa :");
 
-        btnCancelar.setText("Crear Cancelacion");
+        btnCancelar.setText("Crear Solicitud");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);

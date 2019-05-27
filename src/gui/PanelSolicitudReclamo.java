@@ -48,9 +48,9 @@ public class PanelSolicitudReclamo extends javax.swing.JPanel {
 
         jLabel2.setText("Producto :");
 
-        jLabel4.setText("Cedula :");
+        jLabel4.setText("Id Cliente :");
 
-        btnCancelar.setText("Solicitar Reclamo");
+        btnCancelar.setText("Crear Solicitud");
         btnCancelar.setActionCommand("Solicitar Reclamo\n");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

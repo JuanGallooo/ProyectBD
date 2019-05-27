@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 public class Funcionario {
 	private Connection con;
 	public Funcionario(Connection con) {
@@ -30,7 +32,7 @@ public class Funcionario {
 		   stmt.execute();
 		   stmt.close();   
 		   } catch(SQLException sqle){
-			   sqle.printStackTrace();
+			   JOptionPane.showMessageDialog(null, "Error en registrar funcionario", "Error", JOptionPane.ERROR_MESSAGE);
 		   }
 	}
 	
@@ -44,7 +46,7 @@ public class Funcionario {
 	        callSt.execute();
 	        retorno = callSt.getString(1);
 		} catch (Exception e) {
-			retorno= "Error : "+ e.getMessage();
+			retorno= "Error en consultar funcionario : "+ e.getMessage();
 		}
 		return retorno;
 	}
@@ -53,13 +55,13 @@ public class Funcionario {
 		try {
 		    stmt= con.prepareStatement("DECLARE\r\n" + 
 		      		"BEGIN\r\n" + 
-		      		"pkregistroniveldos.pSolicitudReclamo('"+funcionario+"','"+numSolicitud+"');\r\n" + 
+		      		"pkatencionniveldos.patendersolicitud('"+funcionario+"','"+numSolicitud+"');\r\n" + 
 		      		"END;\r\n" + 
 		      		"");
 		   stmt.execute();
 		   stmt.close();   
 		   } catch(SQLException sqle){
-			   sqle.printStackTrace();
+			   JOptionPane.showMessageDialog(null, "Error en Atender la solicitud: " + numSolicitud, "Error", JOptionPane.ERROR_MESSAGE);
 		   }	
     }
 	
@@ -74,13 +76,13 @@ public class Funcionario {
 			
 		    stmt= con.prepareStatement("DECLARE\r\n" + 
 		      		"BEGIN\r\n" + 
-		      		"pkregistroniveldos.pSolicitudReclamo('"+funcionario+"','"+numSolicitud+"','"+resCodigo+"');\r\n" + 
+		      		"pkatencionniveldos.patendersolicituddr('"+funcionario+"','"+numSolicitud+"','"+resCodigo+"');\r\n" + 
 		      		"END;\r\n" + 
 		      		"");
 		   stmt.execute();
 		   stmt.close();   
 		   } catch(SQLException sqle){
-			   sqle.printStackTrace();
+			   JOptionPane.showMessageDialog(null, "Error en Atender la solicitud: " + numSolicitud, "Error", JOptionPane.ERROR_MESSAGE);
 		   }	
 	}
 }

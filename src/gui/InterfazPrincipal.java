@@ -9,7 +9,6 @@ import javax.swing.table.DefaultTableModel;
 
 import modelo.TelefoniaMovil;
 
-@SuppressWarnings("serial")
 public class InterfazPrincipal extends JFrame{
 	
 	private JPanel aux;
@@ -30,7 +29,7 @@ public class InterfazPrincipal extends JFrame{
 	
 	public static void main(String[] args) {
 		InterfazPrincipal principal = new InterfazPrincipal();
-		principal.show();
+		principal.setVisible(true);
 		principal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
@@ -167,19 +166,19 @@ public class InterfazPrincipal extends JFrame{
 
 	public void consultaPorTipo() {
 		String tipo = JOptionPane.showInputDialog(this, "Ingrese el id del tipo que desea hacer la consulta?");
-		String respuesta= mundo.consultaFuncionario(tipo);
+		String respuesta= mundo.consultaTipo(tipo);
 		JOptionPane.showMessageDialog(this, respuesta, "Respuesta a la consulta", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public void consultaPorCliente() {
 		String cliente = JOptionPane.showInputDialog(this, "Ingrese el id del cliente que desea hacer la consulta?");
-		String respuesta= mundo.consultaFuncionario(cliente);
+		String respuesta= mundo.consultaCliente(cliente);
 		JOptionPane.showMessageDialog(this, respuesta, "Respuesta a la consulta", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public void consultaPorEstado() {
 		String estado = JOptionPane.showInputDialog(this, "Ingrese el id del estado que desea hacer la consulta?");
-		String respuesta= mundo.consultaFuncionario(estado);
+		String respuesta= mundo.consultaEstado(estado);
 		JOptionPane.showMessageDialog(this, respuesta, "Respuesta a la consulta", JOptionPane.INFORMATION_MESSAGE);
 	}
 

@@ -81,14 +81,14 @@ public class TelefoniaMovil {
 	public DefaultTableModel solicitudesFuncionario() {
 		DefaultTableModel tabla= new DefaultTableModel();
 	       try{
+	       tabla.addColumn("FECHA_ASIGNACION");
+	       tabla.addColumn("FUNCIONARIO_ID");
+	       tabla.addColumn("NUMSOLICITUD");
 	       tabla.addColumn("NUMSOLICITUD");
 	       tabla.addColumn("OBSERVACION");
 	       tabla.addColumn("PRODUCTO_CODIGO");
 	       tabla.addColumn("CLIENTE_ID");
-	       tabla.addColumn("TIPO_CODIGO");
-	       tabla.addColumn("ESTADO_CODIGO");
-	       tabla.addColumn("FECHA_PENDIENTE");
-	       CallableStatement cts=con.prepareCall("Select solicitud from asignacion inner join solicitud on (asignacion.solicitud_numsolicitud=solicitud.numsolicitud) where asignacion.funcionario_id ="+idUsuario);
+	       CallableStatement cts=con.prepareCall("Select * from asignación inner join solicitud on (asignación.solicitud_numsolicitud=solicitud.numsolicitud) where asignación.funcionario_id ="+idUsuario);
 	       ResultSet r=cts.executeQuery();
 	       while (r.next()){
 	       Object dato[]=new  Object[7];

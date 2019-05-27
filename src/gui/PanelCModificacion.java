@@ -48,7 +48,7 @@ public class PanelCModificacion extends javax.swing.JPanel {
 
         jLabel3.setText("Servicio Nuevo :");
 
-        btnCrear.setText("Modificar Solicitud");
+        btnCrear.setText("Crear Solicitud");
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearActionPerformed(evt);
