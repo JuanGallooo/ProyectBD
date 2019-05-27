@@ -63,5 +63,11 @@ public class TelefoniaMovil {
 	public void atenderSolicitudDR(String funcionario,String numSolicitud, String respuesta) {
 		tbFuncionario.atenderSolicitudDR(funcionario, numSolicitud, respuesta);
 	}
+	public void registrarCliente(String nombre, String contrasenha, String cedula, String direccion , String fn, String telefono) {
+		tbCliente.registrarCliente(nombre, contrasenha, cedula, direccion, fn, telefono);
+	}
+	public void registrarFuncionario(String nombre, String contrasenha, String cedula, String direccion , String fn, String telefono) {
+		tbFuncionario.registrarFuncionario(nombre, contrasenha, cedula, direccion, fn, telefono);
+	}
 	
 }
