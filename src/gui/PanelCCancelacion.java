@@ -39,7 +39,7 @@ public class PanelCCancelacion extends JPanel {
         jTextField2 = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
 
-        jLabel1.setText("Solicitud de creación");
+        jLabel1.setText("Solicitud de Cancelacion");
 
         comboTipo.setModel(new DefaultComboBoxModel(new String[] { "Voz", "Datos", "Integrado" }));
 
