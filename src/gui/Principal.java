@@ -129,7 +129,7 @@ public class Principal extends javax.swing.JPanel {
     }// </editor-fold>                        
 
     private void btnConsultaEActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
+    	principal.consultaPorEstado();
     }                                            
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -149,15 +149,15 @@ public class Principal extends javax.swing.JPanel {
     }                                        
 
     private void btnConsultaFActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
+    	principal.consultaPorFuncionario();
     }                                            
 
     private void btnConsultaTActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
+    	principal.consultaPorTipo();
     }                                            
 
     private void btnConsultaCActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
+    	principal.consultaPorCliente();
     }                                            
 
 

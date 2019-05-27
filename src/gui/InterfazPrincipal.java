@@ -3,6 +3,7 @@ package gui;
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import modelo.TelefoniaMovil;
@@ -126,18 +127,45 @@ public class InterfazPrincipal extends JFrame{
 
 	public void crearSolicitudModificacion(int tipoAnterior, int tipoNuevo) {
 		mundo.crearSolicitudModificacion((tipoAnterior+1)+"", mundo.getIdUsuario(), (tipoNuevo+1)+"");
+		cambiarAPrincipal();
 	}
 
 	public void crearSolicitudCancelacion(int tipo, String observacion) {
 		mundo.crearSolicitudCancelacion((tipo+1)+"", mundo.getIdUsuario(), observacion);
+		cambiarAPrincipal();
 	}
 
 	public void crearSolicitudDano(int tipo, String id, String observacion) {
 		mundo.crearSolicitudDano((tipo+1)+"", id, observacion);
+		cambiarAPrincipal();
 	}
 
 	public void crearSolicitudReclamo(int tipo, String id, String observacion) {
 		mundo.crearSolicitudReclamo((tipo+1)+"", id, observacion);
+		cambiarAPrincipal();
 	}
 
+	public void consultaPorFuncionario() {
+		String funcionario = JOptionPane.showInputDialog(this, "Ingrese el id del funcionario que desea hacer la consulta?");
+		String respuesta= mundo.consultaFuncionario(funcionario);
+		JOptionPane.showMessageDialog(this, respuesta, "Respuesta a la consulta", JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void consultaPorTipo() {
+		String tipo = JOptionPane.showInputDialog(this, "Ingrese el id del tipo que desea hacer la consulta?");
+		String respuesta= mundo.consultaFuncionario(tipo);
+		JOptionPane.showMessageDialog(this, respuesta, "Respuesta a la consulta", JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void consultaPorCliente() {
+		String cliente = JOptionPane.showInputDialog(this, "Ingrese el id del cliente que desea hacer la consulta?");
+		String respuesta= mundo.consultaFuncionario(cliente);
+		JOptionPane.showMessageDialog(this, respuesta, "Respuesta a la consulta", JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void consultaPorEstado() {
+		String estado = JOptionPane.showInputDialog(this, "Ingrese el id del estado que desea hacer la consulta?");
+		String respuesta= mundo.consultaFuncionario(estado);
+		JOptionPane.showMessageDialog(this, respuesta, "Respuesta a la consulta", JOptionPane.INFORMATION_MESSAGE);
+	}
 }
