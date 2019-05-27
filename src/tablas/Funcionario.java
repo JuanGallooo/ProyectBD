@@ -2,6 +2,8 @@ package tablas;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.Types;
 
 public class Funcionario {
@@ -23,5 +25,40 @@ public class Funcionario {
 			retorno= "Error : "+ e.getMessage();
 		}
 		return retorno;
+	}
+	public void atenderSolicitud(String funcionario, String numSolicitud) {
+		PreparedStatement stmt= null; 
+		try {
+		    stmt= con.prepareStatement("DECLARE\r\n" + 
+		      		"BEGIN\r\n" + 
+		      		"pkregistroniveldos.pSolicitudReclamo('"+funcionario+"','"+numSolicitud+"');\r\n" + 
+		      		"END;\r\n" + 
+		      		"");
+		   stmt.execute();
+		   stmt.close();   
+		   } catch(SQLException sqle){
+			   sqle.printStackTrace();
+		   }	
+    }
+	
+	public void atenderSolicitudDR(String funcionario, String numSolicitud, String respuesta) {
+		PreparedStatement stmt= null;   
+		try{
+			String resCodigo="5";
+			
+			if( respuesta.equals("Anulada")) {
+				resCodigo= "6";
+			}
+			
+		    stmt= con.prepareStatement("DECLARE\r\n" + 
+		      		"BEGIN\r\n" + 
+		      		"pkregistroniveldos.pSolicitudReclamo('"+funcionario+"','"+numSolicitud+"','"+resCodigo+"');\r\n" + 
+		      		"END;\r\n" + 
+		      		"");
+		   stmt.execute();
+		   stmt.close();   
+		   } catch(SQLException sqle){
+			   sqle.printStackTrace();
+		   }	
 	}
 }
